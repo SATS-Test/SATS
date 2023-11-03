@@ -1,0 +1,60 @@
+on:
+
+  push:
+
+    branches:
+
+      - adf_publish
+
+ 
+
+permissions:
+
+  id-token: write
+
+  contents: read
+
+ 
+
+jobs:
+
+  release:
+
+    runs-on:
+      group: shr
+
+    steps:
+
+      - name: Azure login
+
+        uses: azure/login@v1.4.6
+
+        with:
+
+          creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+
+ 
+
+     
+
+     
+
+      - name: Get latest code
+
+        uses: actions/checkout@v2
+
+      - name: Deploy Azure Resource Manager (ARM) Template
+
+        uses: Azure/arm-deploy@v1.0.6
+
+        with:
+
+          scope: 'resourcegroup'
+
+          resourceGroupName: "Janvi_RG"
+
+          template: ./devadfbytej/ARMTemplateForFactory.json
+
+          deploymentMode: Incremental
+
+          parameters: factoryName=devadfby
