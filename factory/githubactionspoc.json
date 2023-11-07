@@ -1,0 +1,9 @@
+{
+	"name": "githubactionspoc",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5a85af59-dd5c-462a-a454-28e34e8ab0f8",
+		"tenantId": "e4e34038-ea1f-4882-b6e8-ccd776459ca0"
+	}
+}
