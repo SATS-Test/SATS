@@ -1,0 +1,7 @@
+# CODEOWNERS for ADF CI/CD project
+
+# For production branch
+# Note: This branch represents the stable production environment.
+uat/      @SATS/CT-PR-approver
+prod/      @SATS/CT-PR-approver
+main/      @SATS/CT-PR-approver
